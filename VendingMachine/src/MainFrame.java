@@ -21,10 +21,6 @@ public class MainFrame {
         lbShowBalance.setFont(mainFont);
         lbShowBalance.setForeground(Color.RED);
 
-        JLabel lbOrder = new JLabel();
-        lbOrder.setFont(mainFont);
-        lbOrder.setForeground(Color.GREEN);
-
         JButton btnProd1 = new JButton(
                 vendingMachine.getProduct(0).getName() + ": " + vendingMachine.getProduct(0).getPrice() + " руб.");
         JButton btnProd2 = new JButton(
@@ -254,7 +250,7 @@ public class MainFrame {
                 lbShowBalance.setText(vendingMachine.getCoinDispenser().toString());
                 purchaseInfo(5);
                 Sounds.playSound("VendingMachine\\sounds\\sound.wav").join();
-                
+
                 if (vendingMachine.getCoinDispenser().getBalance() < vendingMachine.getProduct(0).getPrice()) {
                     btnProd1.setEnabled(false);
                 } else
@@ -284,7 +280,7 @@ public class MainFrame {
 
         JPanel productPanel = new JPanel();
         productPanel.setLayout(
-                new GridLayout(vendingMachine.getHolder().getRows(), vendingMachine.getHolder().getRows(), 5, 5));
+                new GridLayout(vendingMachine.getHolder().getRows(), vendingMachine.getHolder().getCols(), 5, 5));
         productPanel.add(btnProd1);
         productPanel.add(btnProd2);
         productPanel.add(btnProd3);
