@@ -9,7 +9,6 @@ import Services.VendingMachine;
 public class MainFrame {
     private VendingMachine vendingMachine;
     final private Font mainFont = new Font("Arial", Font.BOLD, 18);
-    JFrame frame = new JFrame();
 
     public MainFrame(VendingMachine vendingMachine) {
         this.vendingMachine = vendingMachine;
@@ -303,35 +302,40 @@ public class MainFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                vendingMachine.getCoinDispenser().setBalance(
-                        vendingMachine.getCoinDispenser().getBalance() + Integer.parseInt(tfInputCash.getText()));
-                lbShowBalance.setText(vendingMachine.getCoinDispenser().toString());
+                if (isDigit(tfInputCash.getText())) {
+                    vendingMachine.getCoinDispenser().setBalance(
+                            vendingMachine.getCoinDispenser().getBalance() + Integer.parseInt(tfInputCash.getText()));
+                    lbShowBalance.setText(vendingMachine.getCoinDispenser().toString());
+
+                    if (vendingMachine.getCoinDispenser().getBalance() < vendingMachine.getProduct(0).getPrice()) {
+                        btnProd1.setEnabled(false);
+                    } else
+                        btnProd1.setEnabled(true);
+                    if (vendingMachine.getCoinDispenser().getBalance() < vendingMachine.getProduct(1).getPrice()) {
+                        btnProd2.setEnabled(false);
+                    } else
+                        btnProd2.setEnabled(true);
+                    if (vendingMachine.getCoinDispenser().getBalance() < vendingMachine.getProduct(2).getPrice()) {
+                        btnProd3.setEnabled(false);
+                    } else
+                        btnProd3.setEnabled(true);
+                    if (vendingMachine.getCoinDispenser().getBalance() < vendingMachine.getProduct(3).getPrice()) {
+                        btnProd4.setEnabled(false);
+                    } else
+                        btnProd4.setEnabled(true);
+                    if (vendingMachine.getCoinDispenser().getBalance() < vendingMachine.getProduct(4).getPrice()) {
+                        btnProd5.setEnabled(false);
+                    } else
+                        btnProd5.setEnabled(true);
+                    if (vendingMachine.getCoinDispenser().getBalance() < vendingMachine.getProduct(5).getPrice()) {
+                        btnProd6.setEnabled(false);
+                    } else
+                        btnProd6.setEnabled(true);
+                } else
+                    JOptionPane.showMessageDialog(new JFrame(), "Кажется вы ввели не деньги", "Ошибка!", JOptionPane.ERROR_MESSAGE);
+
                 tfInputCash.setText("");
 
-                if (vendingMachine.getCoinDispenser().getBalance() < vendingMachine.getProduct(0).getPrice()) {
-                    btnProd1.setEnabled(false);
-                } else
-                    btnProd1.setEnabled(true);
-                if (vendingMachine.getCoinDispenser().getBalance() < vendingMachine.getProduct(1).getPrice()) {
-                    btnProd2.setEnabled(false);
-                } else
-                    btnProd2.setEnabled(true);
-                if (vendingMachine.getCoinDispenser().getBalance() < vendingMachine.getProduct(2).getPrice()) {
-                    btnProd3.setEnabled(false);
-                } else
-                    btnProd3.setEnabled(true);
-                if (vendingMachine.getCoinDispenser().getBalance() < vendingMachine.getProduct(3).getPrice()) {
-                    btnProd4.setEnabled(false);
-                } else
-                    btnProd4.setEnabled(true);
-                if (vendingMachine.getCoinDispenser().getBalance() < vendingMachine.getProduct(4).getPrice()) {
-                    btnProd5.setEnabled(false);
-                } else
-                    btnProd5.setEnabled(true);
-                if (vendingMachine.getCoinDispenser().getBalance() < vendingMachine.getProduct(5).getPrice()) {
-                    btnProd6.setEnabled(false);
-                } else
-                    btnProd6.setEnabled(true);
             }
         });
 
@@ -349,11 +353,12 @@ public class MainFrame {
         mainPanel.add(productPanel, BorderLayout.NORTH);
         mainPanel.add(formPanel, BorderLayout.SOUTH);
 
-        frame.add(mainPanel);
-
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         formPanel.setOpaque(false);
         productPanel.setOpaque(false);
+
+        JFrame frame = new JFrame();
+        frame.add(mainPanel);
 
         frame.setTitle("Vending Machine");
         frame.setSize(960, 180);
@@ -368,8 +373,45 @@ public class MainFrame {
                 + vendingMachine.getCoinDispenser().toString());
     }
 
-    // public void checkBalance(JPanel productPanel) {
-    // Написать метод, который будет проверять баланс и деактивировать товары,
-    // на которые недостаточно средств (чтобы сократить кучу повторяющегося кода)
-    // }
+    public boolean isDigit(String s) {
+        try {
+            Integer.parseInt(s);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
 }
+
+// public void checkBalance() {
+// if (vendingMachine.getCoinDispenser().getBalance() <
+// vendingMachine.getProduct(0).getPrice()) {
+// btnProd1.setEnabled(false);
+// } else
+// btnProd1.setEnabled(true);
+// if (vendingMachine.getCoinDispenser().getBalance() <
+// vendingMachine.getProduct(1).getPrice()) {
+// btnProd2.setEnabled(false);
+// } else
+// btnProd2.setEnabled(true);
+// if (vendingMachine.getCoinDispenser().getBalance() <
+// vendingMachine.getProduct(2).getPrice()) {
+// btnProd3.setEnabled(false);
+// } else
+// btnProd3.setEnabled(true);
+// if (vendingMachine.getCoinDispenser().getBalance() <
+// vendingMachine.getProduct(3).getPrice()) {
+// btnProd4.setEnabled(false);
+// } else
+// btnProd4.setEnabled(true);
+// if (vendingMachine.getCoinDispenser().getBalance() <
+// vendingMachine.getProduct(4).getPrice()) {
+// btnProd5.setEnabled(false);
+// } else
+// btnProd5.setEnabled(true);
+// if (vendingMachine.getCoinDispenser().getBalance() <
+// vendingMachine.getProduct(5).getPrice()) {
+// btnProd6.setEnabled(false);
+// } else
+// btnProd6.setEnabled(true);
+// }

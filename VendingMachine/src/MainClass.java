@@ -26,7 +26,7 @@ public class MainClass {
         assort.add(item5);
         assort.add(item6);
 
-        Holder hold1 = new Holder(2, 3);
+        Holder hold1 = new Holder(2, 3); // TODO сделать, чтобы окно меняло размер, в зависимости от колличества строк и столбов
         CoinDispenser coinDisp = new CoinDispenser();
         VendingMachine venMach1 = new VendingMachine(hold1, coinDisp, assort);
 
