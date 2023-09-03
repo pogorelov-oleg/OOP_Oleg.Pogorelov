@@ -293,12 +293,12 @@ public class MainFrame {
         JTextField tfInputCash = new JTextField();
         tfInputCash.setFont(mainFont);
 
-        JButton btnInsertCoin = new JButton("Ввод");
-        btnInsertCoin.setFont(mainFont);
-        btnInsertCoin.setForeground(Color.BLUE);
-        btnInsertCoin.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        JButton btnInsertCash = new JButton("Ввод");
+        btnInsertCash.setFont(mainFont);
+        btnInsertCash.setForeground(Color.BLUE);
+        btnInsertCash.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        btnInsertCoin.addActionListener(new ActionListener() {
+        btnInsertCash.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
@@ -332,7 +332,7 @@ public class MainFrame {
                     } else
                         btnProd6.setEnabled(true);
                 } else
-                    JOptionPane.showMessageDialog(new JFrame(), "Кажется вы ввели не деньги", "Ошибка!", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(new JFrame(), "Вы что то ввели, но это точно не деньги :)", "Ошибка!", JOptionPane.ERROR_MESSAGE);
 
                 tfInputCash.setText("");
 
@@ -343,7 +343,7 @@ public class MainFrame {
         formPanel.setLayout(new GridLayout(1, 1, 8, 8));
         formPanel.add(lbInputCash);
         formPanel.add(tfInputCash);
-        formPanel.add(btnInsertCoin);
+        formPanel.add(btnInsertCash);
         formPanel.add(lbShowBalance);
 
         JPanel mainPanel = new JPanel();
