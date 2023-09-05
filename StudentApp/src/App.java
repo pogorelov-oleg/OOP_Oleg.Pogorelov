@@ -44,12 +44,11 @@ public class App {
         StudentGroup group5155 = new StudentGroup(listStud3, 5155);
 
         List<StudentGroup> steam1 = new ArrayList<StudentGroup>();
-
-        StudentSteam steam2023 = new StudentSteam(steam1, 2023);
         steam1.add(group5123);
         steam1.add(group5134);
         steam1.add(group5155);
-
+        
+        StudentSteam steam2023 = new StudentSteam(steam1, 2023);
 
 
        Collections.sort(steam2023.getSteam());
