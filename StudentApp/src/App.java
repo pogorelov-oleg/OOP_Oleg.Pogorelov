@@ -49,10 +49,9 @@ public class App {
         steam1.add(group5155);
         
         StudentSteam steam2023 = new StudentSteam(steam1, 2023);
-
-
-       Collections.sort(steam2023.getSteam());
-       System.out.println(steam2023);
+        
+        Collections.sort(steam2023.getSteam());
+        System.out.println(steam2023);
 
     }
 
