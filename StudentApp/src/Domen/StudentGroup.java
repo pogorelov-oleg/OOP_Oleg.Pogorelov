@@ -43,7 +43,8 @@ public class StudentGroup implements Iterable<Student>, Comparable<StudentGroup>
      */
     @Override
     public String toString() {
-        String studentsOut = "StudentGroup = " + idGroup + ", Колличество учеников = " + groupSize + "\n";
+        String studentsOut = "\u001B[32mStudentGroup = " + idGroup + ", Колличество учеников = " + groupSize
+                + "\u001B[0m\n";
         for (Student student : group) {
             studentsOut += student + "\n";
 
@@ -55,17 +56,6 @@ public class StudentGroup implements Iterable<Student>, Comparable<StudentGroup>
     public Iterator<Student> iterator() {
         return new StudentIterator(group);
     }
-
-    // @Override
-    // public int compareTo(StudentGroup o) {
-    //     if (this.groupSize == o.groupSize) {
-    //         return 0;
-    //     } else if (this.groupSize > o.groupSize) { // TODO узнать, как менять параметр сравнения, не переписывая метод
-    //                                                // compareTo
-    //         return 1;
-    //     } else
-    //         return -1;
-    // }
 
     @Override
     public int compareTo(StudentGroup o) {

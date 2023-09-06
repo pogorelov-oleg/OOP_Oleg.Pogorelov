@@ -1,7 +1,8 @@
 package Domen;
 
 /**
- * Дочерний класс класса Person. Описывает студента. Добавлено поле id (id студента), generalId (статический счетчик id)
+ * Дочерний класс класса Person. Описывает студента. Добавлено поле id (id
+ * студента), generalId (статический счетчик id)
  */
 public class Student extends Person implements Comparable<Student> {
 
@@ -10,8 +11,8 @@ public class Student extends Person implements Comparable<Student> {
 
     public Student(String name, int age) {
         super(name, age);
+        generalId++; // сначала плюсую и ниже присваиваю, чтобы индексация шла с единицы, а не с нуля
         this.id = generalId;
-        generalId++;
     }
 
     public int getId() {

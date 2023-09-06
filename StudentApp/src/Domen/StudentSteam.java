@@ -42,7 +42,7 @@ public class StudentSteam implements Iterable<StudentGroup> {
      */
     @Override
     public String toString() {
-        String groupsOut = "Номер потока:" + idSteam + ", Колличество групп = " + steamSize + "\n";
+        String groupsOut = "\u001B[36m\nНомер потока:" + idSteam + ", Колличество групп = " + steamSize + "\u001B[0m\n\n";
         for (StudentGroup group : steam) {
             groupsOut += group + "\n";
 
