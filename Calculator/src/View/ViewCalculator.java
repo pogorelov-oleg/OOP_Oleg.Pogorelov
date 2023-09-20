@@ -77,7 +77,7 @@ public class ViewCalculator {
     }
 
     /**
-     * Метод, запускающий работу обычного калькулятора
+     * Метод, запускающий работу комплексного калькулятора
      */
     public void runComplex() {
         while (true) {
