@@ -13,7 +13,7 @@ public class RegularCalc implements iCalculable {
     private double[] primaryArg;
 
     /**
-     * Конструктор создает пустой массив на один и присваевает его переменной primaryArg
+     * Конструктор создает пустой массив на 1 элемент и присваевает его переменной primaryArg
      */
     public RegularCalc() {
         this.primaryArg = new double[1];
